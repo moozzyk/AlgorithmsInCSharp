@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Algorithms
 {
@@ -12,17 +8,18 @@ namespace Algorithms
         {
             //RunSorting();
             //RunMaximumSubarray();
-            RunMatrixMultiplication();
+            //RunMatrixMultiplication();
+            RunHeap();
         }
 
         private static void RunSorting()
         {
             var inputArray = new[] { 5, 2, 4, 6, 1, 3 };
-            Sorting.InsertionSort(inputArray);
+            Sorting.InsertionSort((int[])inputArray.Clone());
             Console.WriteLine();
-            Sorting.SelectionSort(inputArray);
+            Sorting.SelectionSort((int[])inputArray.Clone());
             Console.WriteLine();
-            Sorting.MergeSort(inputArray);
+            Sorting.MergeSort((int[])inputArray.Clone());
             Console.WriteLine();
         }
 
@@ -119,7 +116,17 @@ namespace Algorithms
             MatrixMultiplication.RecursiveON3(C, D);
             Console.WriteLine();
             MatrixMultiplication.Recursive(C, D);
+        }
 
+        private static void RunHeap()
+        {
+            var input = new[] {5, 3, 17, 10, 84, 19, 6, 22, 9};
+            Utils.PrintArray(input);
+            Console.WriteLine("\nBuilding max heap recursively");
+            Utils.PrintArray(Heap.BuildMaxHeapRecursive((int[])input.Clone()));
+            Console.WriteLine("\nBuilding max heap iteratively");
+            Utils.PrintArray(Heap.BuildMaxHeapIterative((int[])input.Clone()));
+            Console.WriteLine();
         }
     }
 }
