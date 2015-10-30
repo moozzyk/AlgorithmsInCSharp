@@ -96,7 +96,7 @@ namespace Algorithms
             }
         }
 
-        private static int Parent(int index)
+        public static int Parent(int index)
         {
             // "- 1" because the array is zero based
             return (index - 1) >> 1;

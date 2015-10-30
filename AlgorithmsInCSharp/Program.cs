@@ -6,10 +6,11 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            RunSorting();
+            //RunSorting();
             //RunMaximumSubarray();
             //RunMatrixMultiplication();
             //RunHeap();
+            RunPriorityQueue();
         }
 
         private static void RunSorting()
@@ -129,6 +130,25 @@ namespace Algorithms
             Console.WriteLine("\nBuilding max heap iteratively");
             Utils.PrintArray(Heap.BuildMaxHeapIterative((int[])input.Clone()));
             Console.WriteLine();
+        }
+
+        private static void RunPriorityQueue()
+        {
+            var input = new[] {5, 3, 17, 10, 84, 19, 6, 22, 9};
+            var queue = new PriorityQueue();
+
+            foreach (var value in input)
+            {
+                queue.Insert(value);
+                Console.WriteLine($"Inserted: {value}, Max value {queue.Maximum}");
+            }
+
+            while (queue.HasValues)
+            {
+                var max = queue.ExtractMax();
+                var newMax = queue.HasValues ? queue.Maximum.ToString() : "(N/A - queue is empty)";
+                Console.WriteLine($"Extracted: {max}, new max value: {newMax}");
+            }
         }
     }
 }
