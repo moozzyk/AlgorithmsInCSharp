@@ -11,9 +11,14 @@ namespace Algorithms
 
             return array;
         }
-        public static void MaxHeapifyRecursive(int[] array, int index)
+        public static void MaxHeapifyRecursive(int[] array, int index, int arraySize = -1)
         {
-            if (index >= array.Length)
+            if (arraySize == -1)
+            {
+                arraySize = array.Length;
+            }
+
+            if (index >= arraySize)
             {
                 return;
             }
@@ -21,12 +26,12 @@ namespace Algorithms
             var left = Left(index);
             var right = Right(index);
             int largest = index;
-            if (left < array.Length && array[index] < array[left])
+            if (left < arraySize && array[index] < array[left])
             {
                 largest = left;
             }
 
-            if (right < array.Length && array[largest] < array[right])
+            if (right < arraySize && array[largest] < array[right])
             {
                 largest = right;
             }
@@ -36,7 +41,7 @@ namespace Algorithms
                 var value = array[index];
                 array[index] = array[largest];
                 array[largest] = value;
-                MaxHeapifyRecursive(array, largest);
+                MaxHeapifyRecursive(array, largest, arraySize);
             }
         }
 
@@ -50,24 +55,29 @@ namespace Algorithms
             return array;
         }
 
-        public static void MaxHeapifyIterative(int[] array, int index)
+        public static void MaxHeapifyIterative(int[] array, int index, int arraySize = -1)
         {
-            if (index >= array.Length)
+            if (arraySize == -1)
+            {
+                arraySize = array.Length;
+            }
+
+            if (index >= arraySize)
             {
                 return;
             }
 
-            while (index < array.Length)
+            while (index < arraySize)
             {
                 var left = Left(index);
                 var right = Right(index);
                 int largest = index;
-                if (left < array.Length && array[index] < array[left])
+                if (left < arraySize && array[index] < array[left])
                 {
                     largest = left;
                 }
 
-                if (right < array.Length && array[largest] < array[right])
+                if (right < arraySize && array[largest] < array[right])
                 {
                     largest = right;
                 }

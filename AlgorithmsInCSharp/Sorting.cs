@@ -114,5 +114,24 @@ namespace Algorithms
                 array[left + i] = tmpArray[i];
             }
         }
+
+        public static void HeapSort(int[] array)
+        {
+            Console.WriteLine("Heap sort");
+            Utils.PrintArray(array);
+            Console.Write(" => ");
+
+            Heap.BuildMaxHeapRecursive(array);
+            for (var i = array.Length - 1; i > 0; i--)
+            {
+                var tmp = array[0];
+                array[0] = array[i];
+                array[i] = tmp;
+                Heap.MaxHeapifyIterative(array, 0, arraySize: i);
+            }
+
+            Utils.PrintArray(array);
+            Console.WriteLine();
+        }
     }
 }

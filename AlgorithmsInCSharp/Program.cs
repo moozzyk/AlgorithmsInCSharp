@@ -6,10 +6,10 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            //RunSorting();
+            RunSorting();
             //RunMaximumSubarray();
             //RunMatrixMultiplication();
-            RunHeap();
+            //RunHeap();
         }
 
         private static void RunSorting()
@@ -20,6 +20,8 @@ namespace Algorithms
             Sorting.SelectionSort((int[])inputArray.Clone());
             Console.WriteLine();
             Sorting.MergeSort((int[])inputArray.Clone());
+            Console.WriteLine();
+            Sorting.HeapSort((int[])inputArray.Clone());
             Console.WriteLine();
         }
 
