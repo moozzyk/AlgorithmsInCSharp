@@ -10,7 +10,8 @@ namespace Algorithms
             //RunMaximumSubarray();
             //RunMatrixMultiplication();
             //RunHeap();
-            RunPriorityQueue();
+            //RunPriorityQueue();
+            RunYoungTableau();
         }
 
         private static void RunSorting()
@@ -148,6 +149,30 @@ namespace Algorithms
                 var max = queue.ExtractMax();
                 var newMax = queue.HasValues ? queue.Maximum.ToString() : "(N/A - queue is empty)";
                 Console.WriteLine($"Extracted: {max}, new max value: {newMax}");
+            }
+        }
+
+        private static void RunYoungTableau()
+        {
+            var input = new[] {9, 16, 3, 2, 4, 8, 5, 14, 12};
+            var tableau = new YoungTableau(4, 4);
+
+            foreach (var value in input)
+            {
+                tableau.Insert(value);
+            }
+
+            Utils.PrintYoungTableau(tableau);
+
+            foreach (var value in new[] { 16, 7 , 4, 8, 90, 12 })
+            {
+                Console.WriteLine("The tableau {0} the value {1}.", 
+                    tableau.Contains(value) ? "contains" : "does not contain", value);
+            }
+
+            while(!tableau.IsEmpty)
+            {
+                Console.WriteLine($"Extracted min value: {tableau.ExtractMin()}");
             }
         }
     }

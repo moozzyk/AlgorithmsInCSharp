@@ -48,6 +48,7 @@
     <Compile Include="Sorting.cs" />
     <Compile Include="Heap.cs" />
     <Compile Include="PriorityQueue.cs" />
+    <Compile Include="YoungTableau.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>
