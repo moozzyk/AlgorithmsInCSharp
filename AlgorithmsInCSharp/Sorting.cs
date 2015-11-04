@@ -133,5 +133,49 @@ namespace Algorithms
             Utils.PrintArray(array);
             Console.WriteLine();
         }
+
+        public static void QuickSort(int[] array)
+        {
+            Console.WriteLine("QuickSort");
+            Utils.PrintArray(array);
+            Console.Write(" => ");
+
+            QuickSort(array, 0, array.Length -1);
+
+            Utils.PrintArray(array);
+            Console.WriteLine();
+        }
+
+        private static void QuickSort(int[] array, int left, int right)
+        {
+            if (left < right)
+            {
+                var pivotIdx = Partition(array, left, right);
+                QuickSort(array, left, pivotIdx - 1);
+                QuickSort(array, pivotIdx + 1, right);
+            }
+        }
+
+        private static int Partition(int[] array, int left, int right)
+        {
+            var pivotValue = array[right];
+
+            var partitionIdx = left - 1;
+            for (var i = left; i < right; i++)
+            {
+                if (array[i] < pivotValue)
+                {
+                    partitionIdx++;
+                    var tmp = array[partitionIdx];
+                    array[partitionIdx] = array[i];
+                    array[i] = tmp;
+                }
+            }
+
+            partitionIdx++;
+            array[right] = array[partitionIdx];
+            array[partitionIdx] = pivotValue;
+            return partitionIdx;
+        }
     }
 }
