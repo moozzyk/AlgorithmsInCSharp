@@ -27,6 +27,8 @@ namespace Algorithms
             Console.WriteLine();
             Sorting.QuickSort((int[])inputArray.Clone());
             Console.WriteLine();
+            Sorting.CountingSort(new int[] { -5, 12, 3, -7, 4, 4, 9});
+            Console.WriteLine();
         }
 
         private static void RunMaximumSubarray()

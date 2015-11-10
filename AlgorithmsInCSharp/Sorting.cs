@@ -177,5 +177,46 @@ namespace Algorithms
             array[partitionIdx] = pivotValue;
             return partitionIdx;
         }
+
+        public static int[] CountingSort(int[] array)
+        {
+            Console.WriteLine("CountingSort");
+            Utils.PrintArray(array);
+            Console.Write(" => ");
+
+            int maxValue = int.MinValue;
+            int minValue = int.MaxValue;
+
+            for (var i = 0; i < array.Length; i++)
+            {
+                minValue = Math.Min(minValue, array[i]);
+                maxValue = Math.Max(maxValue, array[i]);
+            }
+
+            var tmp = new int[1 + maxValue - minValue];
+
+            for (var i = 0; i < array.Length; i++)
+            {
+                tmp[array[i] - minValue]++;
+            }
+
+            for (int i = 0, runningSum = 0; i < tmp.Length; i++)
+            {
+                runningSum += tmp[i];
+                tmp[i] = runningSum;
+            }
+
+            var resultArray = new int[array.Length];
+
+            for (var i = array.Length - 1; i >= 0; i--)
+            {
+                // `- 1` - because the array is 0 based
+                resultArray[tmp[array[i] - minValue] - 1] = array[i];
+                tmp[array[i] - minValue]--;
+            }
+
+            Utils.PrintArray(resultArray);
+            return resultArray;
+        }
     }
 }
