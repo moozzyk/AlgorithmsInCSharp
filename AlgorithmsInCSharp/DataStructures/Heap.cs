@@ -1,6 +1,6 @@
-namespace Algorithms
+namespace AlgorithmsInCSharp.DataStructures
 {
-    public class Heap
+    public static class Heap
     {
         public static int[] BuildMaxHeapRecursive(int[] array)
         {
@@ -11,6 +11,7 @@ namespace Algorithms
 
             return array;
         }
+
         public static void MaxHeapifyRecursive(int[] array, int index, int arraySize = -1)
         {
             if (arraySize == -1)
@@ -105,9 +106,9 @@ namespace Algorithms
         private static int Left(int index)
         {
             // "1 +" because the array is zero based
-            return 1 + (index << 1); 
+            return 1 + (index << 1);
         }
-        
+
         private static int Right(int index)
         {
             // "1 +" because the array is zero based

@@ -1,6 +1,6 @@
 using System;
 
-namespace Algorithms
+namespace AlgorithmsInCSharp.DataStructures
 {
     public class YoungTableau
     {
@@ -9,6 +9,7 @@ namespace Algorithms
         public int[,] Values { get; }
 
         public bool IsEmpty { get { return Values[0, 0] == int.MaxValue; }}
+
         public YoungTableau(int rows, int columns)
         {
             Rows = rows;
@@ -39,7 +40,7 @@ namespace Algorithms
             for (;;)
             {
                 var largestValue = int.MinValue;
-                int largestColumn = column, largestRow = row; 
+                int largestColumn = column, largestRow = row;
 
                 if (column > 0)
                 {
@@ -73,7 +74,7 @@ namespace Algorithms
             {
                 throw new InvalidOperationException("The tableau is empty.");
             }
-            
+
             var minValue = Values[0, 0];
             Values[0 ,0] = int.MaxValue;
             Restore(0, 0);

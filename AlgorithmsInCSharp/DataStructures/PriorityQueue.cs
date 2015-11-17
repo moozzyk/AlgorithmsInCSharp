@@ -1,6 +1,6 @@
 using System;
 
-namespace Algorithms
+namespace AlgorithmsInCSharp.DataStructures
 {
     public class PriorityQueue
     {
