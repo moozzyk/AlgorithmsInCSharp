@@ -59,6 +59,7 @@
     <Compile Include="DataStructures\YoungTableau.cs" />
     <Compile Include="DataStructures\Heap.cs" />
     <Compile Include="DataStructures\PriorityQueue.cs" />
+    <Compile Include="DataStructures\Stack.cs" />
     <Compile Include="DataStructures\LinkedList.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SortingRunner.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="HeapRunner.cs" />
     <Compile Include="PriorityQueueRunner.cs" />
     <Compile Include="YoungTableauRunner.cs" />
+    <Compile Include="StackRunner.cs" />
     <Compile Include="LinkedListRunner.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
