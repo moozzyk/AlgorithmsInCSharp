@@ -10,6 +10,7 @@
             HeapRunner.Run();
             PriorityQueueRunner.Run();
             YoungTableauRunner.Run();
+            LinkedListRunner.Run();
         }
     }
 }

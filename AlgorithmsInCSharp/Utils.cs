@@ -74,5 +74,18 @@ namespace AlgorithmsInCSharp
                 Console.WriteLine(sb.ToString());
             }
         }
+
+        public static void PrintList<T>(AlgorithmsInCSharp.DataStructures.LinkedList<T>.Node node)
+        {
+            Console.Write("Head -> ");
+
+            while (node != null)
+            {
+                Console.Write("{0} -> ", node.Value);
+                node = node.Next;
+            }
+
+            Console.WriteLine("null");
+        }
     }
 }
