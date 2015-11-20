@@ -11,6 +11,7 @@
             PriorityQueueRunner.Run();
             YoungTableauRunner.Run();
             StackRunner.Run();
+            QueueRunner.Run();
             LinkedListRunner.Run();
         }
     }
