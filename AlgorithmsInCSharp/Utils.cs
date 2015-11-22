@@ -77,7 +77,7 @@ namespace AlgorithmsInCSharp
 
         public static void PrintList<T>(AlgorithmsInCSharp.DataStructures.LinkedList<T>.Node node)
         {
-            Console.Write("Head -> ");
+            Console.Write("  List: Head -> ");
 
             while (node != null)
             {
@@ -86,6 +86,31 @@ namespace AlgorithmsInCSharp
             }
 
             Console.WriteLine("null");
+        }
+
+        public static void PrintList<T>(AlgorithmsInCSharp.DataStructures.DoublyLinkedList<T>.Node node)
+        {
+            Console.Write("  List: Head <-> ");
+
+            while (node != null)
+            {
+                Console.Write("{0} <-> ", node.Value);
+                node = node.Next;
+            }
+
+            Console.WriteLine("Tail");
+        }
+
+        public static void PrintListReverse<T>(AlgorithmsInCSharp.DataStructures.DoublyLinkedList<T>.Node node)
+        {
+            Console.Write("  List: Tail <-> ");
+            while (node != null)
+            {
+                Console.Write("{0} <-> ", node.Value);
+                node = node.Previous;
+            }
+
+            Console.WriteLine("Head");
         }
     }
 }

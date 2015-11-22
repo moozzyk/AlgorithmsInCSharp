@@ -13,6 +13,7 @@
             StackRunner.Run();
             QueueRunner.Run();
             LinkedListRunner.Run();
+            DoublyLinkedListRunner.Run();
         }
     }
 }
