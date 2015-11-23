@@ -1,20 +1,33 @@
-namespace AlgorithmsInCSharp.Algorithms.Sorting
+using System;
+
+namespace AlgorithmsInCSharp.Algorithms.Misc
 {
-    public static class QuickSort
+    public static class QuickSelect
     {
-        public static void Sort(int[] array)
+        public static int Select(int[] array, int n)
         {
-            Sort(array, 0, array.Length - 1);
+            if (n < 0 || n >= array.Length)
+            {
+                throw new ArgumentException("n must must be with 0..array.Length - 1 range.", "n");
+            }
+
+            return Select(array, 0, array.Length - 1, n);
         }
 
-        private static void Sort(int[] array, int left, int right)
+        private static int Select(int[] array, int left, int right, int n)
         {
-            if (left < right)
+            var pivot = Partition(array, left, right);
+            if (pivot == n)
             {
-                var pivotIdx = Partition(array, left, right);
-                Sort(array, left, pivotIdx - 1);
-                Sort(array, pivotIdx + 1, right);
+                return array[pivot];
             }
+
+            if (pivot > n)
+            {
+                return Select(array, left, pivot - 1, n);
+            }
+
+            return Select(array, pivot + 1, right, n);
         }
 
         private static int Partition(int[] array, int left, int right)

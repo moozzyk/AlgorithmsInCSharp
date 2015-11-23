@@ -7,6 +7,7 @@
             SortingRunner.Run();
             MaximumSubarrayRunner.Run();
             MatrixMultiplicationRunner.Run();
+            MiscAlgorithmsRunner.Run();
             HeapRunner.Run();
             PriorityQueueRunner.Run();
             YoungTableauRunner.Run();

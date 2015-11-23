@@ -56,6 +56,7 @@
     <Compile Include="Algorithms\MatrixMultiplication\MatrixMultiplication_Iterative_ON3.cs" />
     <Compile Include="Algorithms\MatrixMultiplication\MatrixMultiplication_Recursive_ON3.cs" />
     <Compile Include="Algorithms\MatrixMultiplication\MatrixMultiplication_RecursiveInPlace_ON3.cs" />
+    <Compile Include="Algorithms\Misc\QuickSelect.cs" />
     <Compile Include="DataStructures\YoungTableau.cs" />
     <Compile Include="DataStructures\Heap.cs" />
     <Compile Include="DataStructures\PriorityQueue.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="SortingRunner.cs" />
     <Compile Include="MaximumSubarrayRunner.cs" />
     <Compile Include="MatrixMultiplicationRunner.cs" />
+    <Compile Include="MiscAlgorithmsRunner.cs" />
     <Compile Include="HeapRunner.cs" />
     <Compile Include="PriorityQueueRunner.cs" />
     <Compile Include="YoungTableauRunner.cs" />
