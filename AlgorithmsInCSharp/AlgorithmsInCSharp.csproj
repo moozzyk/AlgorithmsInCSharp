@@ -64,6 +64,7 @@
     <Compile Include="DataStructures\Queue.cs" />
     <Compile Include="DataStructures\LinkedList.cs" />
     <Compile Include="DataStructures\DoublyLinkedList.cs" />
+    <Compile Include="DataStructures\Hashtable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SortingRunner.cs" />
     <Compile Include="MaximumSubarrayRunner.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="StackRunner.cs" />
     <Compile Include="LinkedListRunner.cs" />
     <Compile Include="DoublyLinkedListRunner.cs" />
+    <Compile Include="HashtableRunner.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

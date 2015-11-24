@@ -15,6 +15,7 @@
             QueueRunner.Run();
             LinkedListRunner.Run();
             DoublyLinkedListRunner.Run();
+            HashtableRunner.Run();
         }
     }
 }
