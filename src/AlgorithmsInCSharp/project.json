@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0-*",
+  "description": "Algorithms in C#",
+  "authors": [ "moozzyk" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "commands": {
+    "AlgorithmsInCSharp": "AlgorithmsInCSharp"
+  },
+
+  "frameworks": {
+    "dnxcore50": {
+      "dependencies": {
+        "System.Runtime": "4.0.21-*",
+        "System.Console": "4.0.0-*",
+        "System.Linq": "4.0.1-*"
+      }
+    },
+    "dnx451": { }
+  }
+}
