@@ -27,6 +27,12 @@ namespace AlgorithmsInCSharp.DataStructures
                 _hashtable[index] = new LinkedList<TKey>();
             }
 
+            var node = _hashtable[index].Search(key);
+            if (node != null)
+            {
+                _hashtable[index].Delete(node);
+            }
+
             _hashtable[index].Insert(key);
         }
 
