@@ -15,11 +15,15 @@ namespace AlgorithmsInCSharp.Algorithms.Sorting
                 maxValue = Math.Max(maxValue, array[i]);
             }
 
-            var tmp = new int[1 + maxValue - minValue];
+            return Sort(array, minValue, maxValue, v => v);
+        }
+        public static int[] Sort(int[] array, int minKeyValue, int maxKeyValue, Func<int, int> key)
+        {
+            var tmp = new int[1 + maxKeyValue - minKeyValue];
 
             for (var i = 0; i < array.Length; i++)
             {
-                tmp[array[i] - minValue]++;
+                tmp[key(array[i]) - minKeyValue]++;
             }
 
             for (int i = 0, runningSum = 0; i < tmp.Length; i++)
@@ -33,8 +37,8 @@ namespace AlgorithmsInCSharp.Algorithms.Sorting
             for (var i = array.Length - 1; i >= 0; i--)
             {
                 // `- 1` - because the array is 0 based
-                resultArray[tmp[array[i] - minValue] - 1] = array[i];
-                tmp[array[i] - minValue]--;
+                resultArray[tmp[key(array[i]) - minKeyValue] - 1] = array[i];
+                tmp[key(array[i]) - minKeyValue]--;
             }
 
             return resultArray;
