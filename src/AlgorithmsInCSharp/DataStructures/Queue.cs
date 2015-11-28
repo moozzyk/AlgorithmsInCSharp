@@ -8,6 +8,8 @@ namespace AlgorithmsInCSharp.DataStructures
         int _head;
         int _tail;
 
+        public bool IsEmpty { get { return _head == _tail; } }
+
         public Queue(int size)
         {
             _values = new T[size + 1];
@@ -26,7 +28,7 @@ namespace AlgorithmsInCSharp.DataStructures
 
         public T Dequeue()
         {
-            if (_head == _tail)
+            if (IsEmpty)
             {
                 throw new InvalidOperationException("Queue is empty.");
             }

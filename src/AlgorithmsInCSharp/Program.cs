@@ -16,6 +16,7 @@
             LinkedListRunner.Run();
             DoublyLinkedListRunner.Run();
             HashtableRunner.Run();
+            BinarySearchTreeRunner.Run();
         }
     }
 }

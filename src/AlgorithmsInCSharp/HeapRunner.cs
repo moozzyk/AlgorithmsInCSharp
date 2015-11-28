@@ -16,9 +16,9 @@ namespace AlgorithmsInCSharp
         {
             Utils.PrintAlgorithmRun(name, ()=>
             {
-                Console.Write($"{Utils.FormatArray(inputArray)} => ");
+                Console.WriteLine($"{Utils.FormatArray(inputArray)} => ");
                 var maxHeap = buildHeap(inputArray);
-                Console.WriteLine(Utils.FormatArray(maxHeap));
+                Utils.PrintHeap(maxHeap);
             });
         }
     }
