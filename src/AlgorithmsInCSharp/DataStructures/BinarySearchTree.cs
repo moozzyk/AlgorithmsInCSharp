@@ -33,6 +33,8 @@ namespace AlgorithmsInCSharp.DataStructures
             }
             else
             {
+                newNode.Parent = parent;
+
                 if (parent.Value.CompareTo(value) > 0)
                 {
                     parent.Left = newNode;
@@ -44,9 +46,54 @@ namespace AlgorithmsInCSharp.DataStructures
             }
         }
 
-        public BinaryTreeNode<T> Delete(BinaryTreeNode<T> value)
+        public void Delete(BinaryTreeNode<T> node)
         {
-            throw new System.NotImplementedException();
+            if (node.Left == null)
+            {
+                Transplant(node, node.Right);
+                return;
+            }
+
+            if (node.Right == null)
+            {
+                Transplant(node, node.Left);
+                return;
+            }
+
+            var nodeToMove = BinarySearchTree<T>.Minimum(node.Right);
+
+            if (nodeToMove.Parent != node)
+            {
+                Transplant(nodeToMove, nodeToMove.Right);
+                nodeToMove.Right = node.Right;
+                nodeToMove.Right.Parent = nodeToMove;
+            }
+
+            Transplant(node, nodeToMove);
+            nodeToMove.Left = node.Left;
+            nodeToMove.Left.Parent = node.Parent;
+        }
+
+        private void Transplant(BinaryTreeNode<T> node1, BinaryTreeNode<T> node2)
+        {
+            if (node1.Parent == null)
+            {
+                Root = node2;
+                return;
+            }
+
+            if (node1.Parent.Left == node1)
+            {
+                node1.Parent.Left = node2;
+                return;
+            }
+
+            node1.Parent.Right = node2;
+
+            if (node2 != null)
+            {
+                node2.Parent = node1.Parent;
+            }
         }
 
         public BinaryTreeNode<T> Search(T value)
@@ -67,5 +114,72 @@ namespace AlgorithmsInCSharp.DataStructures
 
             return node;
         }
+
+        public BinaryTreeNode<T> Minimum()
+        {
+            return Minimum(Root);
+        }
+
+        private static BinaryTreeNode<T> Minimum(BinaryTreeNode<T> node)
+        {
+            while (node != null && node.Left != null)
+            {
+                node = node.Left;
+            }
+
+            return node;
+        }
+
+        public BinaryTreeNode<T> Maximum()
+        {
+            return Maximum(Root);
+        }
+
+        public static BinaryTreeNode<T> Maximum(BinaryTreeNode<T> node)
+        {
+            while (node != null && node.Right != null)
+            {
+                node = node.Right;
+            }
+
+            return node;
+        }
+
+        public static BinaryTreeNode<T> Successor(BinaryTreeNode<T> node)
+        {
+            if (node.Right != null)
+            {
+                return Minimum(node.Right);
+            }
+
+            var child = node;
+            var parent = node.Parent;
+            while (parent != null && parent.Right == child)
+            {
+                child = parent;
+                parent = parent.Parent;
+            }
+
+            return parent;
+        }
+
+        public static BinaryTreeNode<T> Predecessor(BinaryTreeNode<T> node)
+        {
+            if (node.Left != null)
+            {
+                return Maximum(node.Left);
+            }
+
+            var child = node;
+            var parent = node.Parent;
+            while (parent != null && parent.Left == child)
+            {
+                child = parent;
+                parent = parent.Parent;
+            }
+
+            return parent;
+        }
+
     }
 }
