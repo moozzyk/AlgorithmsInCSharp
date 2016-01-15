@@ -9,6 +9,7 @@ namespace AlgorithmsInCSharp
         {
             Utils.PrintAlgorithmRun("QuickSelect", RunQuickSelect);
             Utils.PrintAlgorithmRun("DutchFlag", RunDutchFlag);
+            Utils.PrintAlgorithmRun("ArrayRotation", RunArrayRotation);
         }
 
         private static void RunQuickSelect()
@@ -27,6 +28,20 @@ namespace AlgorithmsInCSharp
             Console.WriteLine($"Input: {Utils.FormatArray(inputArray)}, pivot: {inputArray[pivotIdx]}");
             DutchFlag.Partition(inputArray, pivotIdx);
             Console.WriteLine($"{Utils.FormatArray(inputArray)}");
+        }
+
+        private static void RunArrayRotation()
+        {
+            var inputArray = new[] { 1, 2, 3, 4, 5, 6 };
+            var positions = 2;
+            Console.WriteLine($"Input: {Utils.FormatArray(inputArray)}, rotate by: {positions}");
+            var arrayCopy = (int[])inputArray.Clone();
+            ArrayRotation.Rotate(arrayCopy, positions);
+            Console.WriteLine($"Rotate: {Utils.FormatArray(arrayCopy)}");
+
+            arrayCopy = (int[])inputArray.Clone();
+            ArrayRotation.Rotate_Reverse(arrayCopy, positions);
+            Console.WriteLine($"Rotate by using array reverse: {Utils.FormatArray(arrayCopy)}");
         }
     }
 }
