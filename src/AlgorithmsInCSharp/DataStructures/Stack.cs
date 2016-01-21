@@ -3,23 +3,28 @@ namespace AlgorithmsInCSharp.DataStructures
     public class Stack<T>
     {
         private T[] _values;
-        private int _top;
+        private int _top = -1;
 
         public Stack(int size)
         {
             _values = new T[size];
         }
 
-        public bool IsEmpty { get { return _top == 0; } }
+        public bool IsEmpty { get { return _top < 0; } }
 
         public void Push(T value)
         {
-            _values[_top++] = value;
+            _values[++_top] = value;
         }
 
         public T Pop()
         {
-            return _values[--_top];
+            return _values[_top--];
+        }
+
+        public T Peek()
+        {
+            return _values[_top];
         }
     }
 }

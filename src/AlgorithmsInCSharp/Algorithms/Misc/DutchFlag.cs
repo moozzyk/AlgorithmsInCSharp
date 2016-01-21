@@ -38,11 +38,4 @@ namespace AlgorithmsInCSharp.Algorithms.Misc
     }
 }
 
-/*
-7
-
-                             v
-  2, 5, 4, 4, 1, 2, 6, 7, 9, 3, 8
-                    ^           ^
-*/
 
