@@ -10,6 +10,7 @@ namespace AlgorithmsInCSharp
         public static void Run()
         {
             Utils.PrintAlgorithmRun("SortStack", RunSortStack);
+            Utils.PrintAlgorithmRun("RecursiveInOrderTraversal", RunIterativeInOrderTraversal);
         }
 
         private static void RunSortStack()
@@ -32,6 +33,25 @@ namespace AlgorithmsInCSharp
             }
 
             Console.WriteLine($"Output: {Utils.FormatArray(output)}");
+        }
+
+        private static void RunIterativeInOrderTraversal()
+        {
+            var values = new[] { 15, 6, 20, 3, 7, 17, 19, 22, 2, 4, 13, 9 };
+
+            Console.WriteLine($"Building binary tree from: {Utils.FormatArray(values)} =>\n");
+
+            var tree = new BinarySearchTree<int>();
+            foreach (var v in values)
+            {
+                tree.Add(v);
+            }
+
+            Utils.PrintBinaryTree(tree.Root);
+            string visited = string.Empty;
+            Console.Write("In-Order traversal values: ");
+            IterativeInOrderTraversal.Visit(tree.Root, v => Console.Write($"{v.ToString()} "));
+            Console.WriteLine();
         }
     }
 }
