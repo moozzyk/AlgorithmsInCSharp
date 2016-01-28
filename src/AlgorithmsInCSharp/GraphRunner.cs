@@ -10,6 +10,7 @@ namespace AlgorithmsInCSharp
         public static void Run()
         {
             Utils.PrintAlgorithmRun("Graph - Breadth First Search", RunBreadthFirstSearch);
+            Utils.PrintAlgorithmRun("Graph - Depth First Search", RunDepthFirstSearch);
         }
 
         private static void RunBreadthFirstSearch()
@@ -41,6 +42,36 @@ namespace AlgorithmsInCSharp
 
             Console.Write("Visited nodes: ");
             Graphs.BreadthFirstSearch(graph, vertices[1], v => Console.Write($"{v.Id} "));
+            Console.WriteLine();
+        }
+
+        private static void RunDepthFirstSearch()
+        {
+            var vertices = Enumerable.Range(0, 6).Select(i => new Vertex(i)).ToArray();
+
+            var graph = CreateGraph(vertices,
+                /* 0 -> */ new[] {1, 3},
+                /* 1 -> */ new[] {4},
+                /* 2 -> */ new[] {5, 4},
+                /* 3 -> */ new[] {1},
+                /* 4 -> */ new int[0],
+                /* 5 -> */ new[] {5});
+
+            Console.WriteLine("Graph:");
+            for(var i = 0; i < vertices.Length; i++)
+            {
+                Console.Write($"{i}: ");
+
+                for (var node = graph[i].Head; node != null; node = node.Next)
+                {
+                    Console.Write($"{node.Value.Id} -> ");
+                }
+
+                Console.WriteLine("null");
+            }
+
+            Console.Write("Visited nodes: ");
+            Graphs.DepthFirstSearch(vertices, graph, v => Console.Write($"{v.Id} "));
             Console.WriteLine();
         }
 

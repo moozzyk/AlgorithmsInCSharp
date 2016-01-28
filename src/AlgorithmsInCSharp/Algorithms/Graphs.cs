@@ -27,5 +27,33 @@ namespace AlgorithmsInCSharp.Algorithms
                 }
             }
         }
+
+        public static void DepthFirstSearch(Vertex[] vertices, LinkedList<Vertex>[] graph, Action<Vertex> vertexAction)
+        {
+            for (var i = 0; i < vertices.Length; i++)
+            {
+                if (vertices[i].Color == VertexColor.White)
+                {
+                    DepthFirstSearch(vertices[i], graph, vertexAction);
+                }
+            }
+        }
+
+        private static void DepthFirstSearch(Vertex vertex, LinkedList<Vertex>[] graph, Action<Vertex> vertexAction)
+        {
+            vertexAction(vertex);
+
+            vertex.Color = VertexColor.Gray;
+
+            for (var neighbour = graph[vertex.Id].Head; neighbour != null; neighbour = neighbour.Next)
+            {
+                if (neighbour.Value.Color == VertexColor.White)
+                {
+                    DepthFirstSearch(neighbour.Value, graph, vertexAction);
+                }
+            }
+
+            vertex.Color = VertexColor.Black;
+        }
     }
 }
