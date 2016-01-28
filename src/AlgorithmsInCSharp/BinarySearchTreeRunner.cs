@@ -10,6 +10,7 @@ namespace AlgorithmsInCSharp
         {
             Utils.PrintAlgorithmRun("Binary Search Tree", RunBST);
         }
+
         private static void RunBST()
         {
             var values = new[] { 15, 6, 20, 3, 7, 17, 19, 22, 2, 4, 13, 9 };
