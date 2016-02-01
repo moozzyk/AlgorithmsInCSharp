@@ -15,33 +15,101 @@ namespace AlgorithmsInCSharp.Algorithms
             return 1 + Math.Max(Height(node.Left), Height(node.Right));
         }
 
-        public static void PreOrderTraversal<T>(BinaryTreeNode<T> node, Action<T> nodeAction)
+        public static void RecursivePreOrderTraversal<T>(BinaryTreeNode<T> node, Action<T> nodeAction)
         {
             if (node != null)
             {
                 nodeAction(node.Value);
-                PreOrderTraversal(node.Left, nodeAction);
-                PreOrderTraversal(node.Right, nodeAction);
+                RecursivePreOrderTraversal(node.Left, nodeAction);
+                RecursivePreOrderTraversal(node.Right, nodeAction);
             }
         }
 
-        public static void InOrderTraversal<T>(BinaryTreeNode<T> node, Action<T> nodeAction)
+        public static void RecursiveInOrderTraversal<T>(BinaryTreeNode<T> node, Action<T> nodeAction)
         {
             if (node != null)
             {
-                InOrderTraversal(node.Left, nodeAction);
+                RecursiveInOrderTraversal(node.Left, nodeAction);
                 nodeAction(node.Value);
-                InOrderTraversal(node.Right, nodeAction);
+                RecursiveInOrderTraversal(node.Right, nodeAction);
             }
         }
 
-        public static void PostOrderTraversal<T>(BinaryTreeNode<T> node, Action<T> nodeAction)
+        public static void RecursivePostOrderTraversal<T>(BinaryTreeNode<T> node, Action<T> nodeAction)
         {
             if (node != null)
             {
-                PostOrderTraversal(node.Left, nodeAction);
-                PostOrderTraversal(node.Right, nodeAction);
+                RecursivePostOrderTraversal(node.Left, nodeAction);
+                RecursivePostOrderTraversal(node.Right, nodeAction);
                 nodeAction(node.Value);
+            }
+        }
+
+        public static void IterativeInOrderTraversal<T>(BinaryTreeNode<T> root, Action<T> action)
+        {
+            var nodes = new Stack<BinaryTreeNode<T>>(20);
+            var currentNode = root;
+
+            while (!nodes.IsEmpty || currentNode != null)
+            {
+                if (currentNode != null)
+                {
+                    nodes.Push(currentNode);
+                    currentNode = currentNode.Left;
+                }
+                else
+                {
+                    currentNode = nodes.Pop();
+                    action(currentNode.Value);
+                    currentNode = currentNode.Right;
+                }
+            }
+        }
+
+        public static void IterativePreOrderTraversal<T>(BinaryTreeNode<T> root, Action<T> action)
+        {
+            var nodes = new Stack<BinaryTreeNode<T>>(20);
+            nodes.Push(root);
+
+            while (!nodes.IsEmpty)
+            {
+                var currentNode = nodes.Pop();
+                if (currentNode != null)
+                {
+                    action(currentNode.Value);
+                    nodes.Push(currentNode.Right);
+                    nodes.Push(currentNode.Left);
+                }
+            }
+        }
+
+        public static void IterativePostOrderTraversal<T>(BinaryTreeNode<T> root, Action<T> action)
+        {
+            var nodes = new Stack<BinaryTreeNode<T>>(20);
+
+            var currentNode = root;
+            while (!nodes.IsEmpty || currentNode != null)
+            {
+                if (currentNode != null)
+                {
+                    nodes.Push(currentNode);
+                    currentNode = currentNode.Left ?? currentNode.Right;
+                }
+                else
+                {
+                    var tmp = nodes.Pop();
+                    action(tmp.Value);
+
+                    if (!nodes.IsEmpty)
+                    {
+                        var parent = nodes.Peek();
+
+                        if (tmp == parent.Left)
+                        {
+                            currentNode = parent.Right;
+                        }
+                    }
+                }
             }
         }
 

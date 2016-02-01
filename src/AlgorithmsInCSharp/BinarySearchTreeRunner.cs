@@ -47,8 +47,6 @@ namespace AlgorithmsInCSharp
                 Console.WriteLine();
             }
 
-            Traversal(tree.Root);
-
             var deleteValues = new [] { 15 };
             foreach (var v in deleteValues)
             {
@@ -58,25 +56,6 @@ namespace AlgorithmsInCSharp
                 Utils.PrintBinaryTree(tree.Root);
                 Console.WriteLine();
             }
-        }
-
-        private static void Traversal<T>(BinaryTreeNode<T> root)
-        {
-            var values = string.Empty;
-            Trees.PreOrderTraversal(root, v => { values += v.ToString() + " "; });
-            Console.WriteLine($"Pre-Order traversal: {values}");
-
-            values = string.Empty;
-            Trees.InOrderTraversal(root, v => { values += v.ToString() + " "; });
-            Console.WriteLine($"In-Order traversal: {values}");
-
-            values = string.Empty;
-            Trees.PostOrderTraversal(root, v => { values += v.ToString() + " "; });
-            Console.WriteLine($"Post-Order traversal: {values}");
-
-            values = string.Empty;
-            Trees.BreadthFirstSearch(root, v => { values += v.ToString() + " "; });
-            Console.WriteLine($"Breadth-first traversal: {values}");
         }
     }
 }
