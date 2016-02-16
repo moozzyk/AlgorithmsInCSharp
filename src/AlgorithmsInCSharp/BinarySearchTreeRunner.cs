@@ -1,5 +1,4 @@
 using System;
-using AlgorithmsInCSharp.Algorithms;
 using AlgorithmsInCSharp.DataStructures;
 
 namespace AlgorithmsInCSharp
