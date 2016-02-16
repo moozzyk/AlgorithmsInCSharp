@@ -113,6 +113,30 @@ namespace AlgorithmsInCSharp
             Console.WriteLine("Head");
         }
 
+        public static void PrintStack<T>(Stack<T> stack)
+        {
+            if (stack.IsEmpty)
+            {
+                Console.WriteLine("  (empty)");
+            }
+            else
+            {
+                PrintStackHelper(stack);
+            }
+            Console.WriteLine();
+        }
+
+        private static void PrintStackHelper<T>(Stack<T> stack)
+        {
+            if (!stack.IsEmpty)
+            {
+                var item = stack.Pop();
+                Console.WriteLine($"  {item}");
+                PrintStackHelper(stack);
+                stack.Push(item);
+            }
+        }
+
         public static void PrintBinaryTree<T>(BinaryTreeNode<T> root)
         {
             var height = Trees.Height(root);

@@ -12,6 +12,7 @@ namespace AlgorithmsInCSharp
             Utils.PrintAlgorithmRun("SortStack", RunSortStack);
             Utils.PrintAlgorithmRun("DoublyLinkedListToBinaryTree", RunDoublyLinkedListToBinaryTreeConversion);
             Utils.PrintAlgorithmRun("BinaryTreeToDoublyLinkedList", RunBinaryTreeToListConversion);
+            Utils.PrintAlgorithmRun("TowersOfHanoi", RunTowersOfHanoi);
         }
 
         private static void RunSortStack()
@@ -107,6 +108,30 @@ namespace AlgorithmsInCSharp
             }
 
             Console.WriteLine();
+        }
+
+        private static void RunTowersOfHanoi()
+        {
+            var from = new Stack<int>(7);
+            var to = new Stack <int>(7);
+
+            for (var i = 7; i > 0; --i)
+            {
+                from.Push(i);
+            }
+
+            Console.WriteLine("From:");
+            Utils.PrintStack(from);
+            Console.WriteLine("To:");
+            Utils.PrintStack(to);
+
+            Console.WriteLine("\nRunning Towers of Hanoi\n");
+            TowersOfHanoi.Move(from, to);
+
+            Console.WriteLine("From:");
+            Utils.PrintStack(from);
+            Console.WriteLine("To:");
+            Utils.PrintStack(to);
         }
     }
 }
