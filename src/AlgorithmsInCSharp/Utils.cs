@@ -188,5 +188,17 @@ namespace AlgorithmsInCSharp
             }
             Console.WriteLine();
         }
+
+        public static void PrintSudoku(byte[,] board)
+        {
+            for (var row = 0; row < 9; row++)
+            {
+                for (var col = 0; col < 9; col++)
+                {
+                    Console.Write($"{(board[row, col] == 0 ? " " : board[row, col].ToString())} ");
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }

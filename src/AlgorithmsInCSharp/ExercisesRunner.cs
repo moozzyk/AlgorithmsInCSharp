@@ -13,6 +13,7 @@ namespace AlgorithmsInCSharp
             Utils.PrintAlgorithmRun("DoublyLinkedListToBinaryTree", RunDoublyLinkedListToBinaryTreeConversion);
             Utils.PrintAlgorithmRun("BinaryTreeToDoublyLinkedList", RunBinaryTreeToListConversion);
             Utils.PrintAlgorithmRun("TowersOfHanoi", RunTowersOfHanoi);
+            Utils.PrintAlgorithmRun("SudokuSolver", RunSudokuSolver);
         }
 
         private static void RunSortStack()
@@ -132,6 +133,39 @@ namespace AlgorithmsInCSharp
             Utils.PrintStack(from);
             Console.WriteLine("To:");
             Utils.PrintStack(to);
+        }
+
+        private static void RunSudokuSolver()
+        {
+            var sudoku = new byte[][]
+                {
+                    new byte[] { 0, 1, 2 },
+                    new byte[] { 0, 3, 6 },
+                    new byte[] { 0, 5, 8 },
+                    new byte[] { 1, 0, 5 },
+                    new byte[] { 1, 1, 8 },
+                    new byte[] { 1, 5, 9 },
+                    new byte[] { 1, 6, 7 },
+                    new byte[] { 2, 4, 4 },
+                    new byte[] { 3, 0, 3 },
+                    new byte[] { 3, 1, 7 },
+                    new byte[] { 3, 6, 5 },
+                    new byte[] { 4, 0, 6 },
+                    new byte[] { 4, 8, 4 },
+                    new byte[] { 5, 2, 8 },
+                    new byte[] { 5, 7, 1 },
+                    new byte[] { 5, 8, 3 },
+                    new byte[] { 6, 4, 2 },
+                    new byte[] { 7, 2, 9 },
+                    new byte[] { 7, 3, 8 },
+                    new byte[] { 7, 7, 3 },
+                    new byte[] { 7, 8, 6 },
+                    new byte[] { 8, 3, 3 },
+                    new byte[] { 8, 5, 6 },
+                    new byte[] { 8, 7, 9 },
+                };
+
+            SudokuSolver.Solve(sudoku);
         }
     }
 }
