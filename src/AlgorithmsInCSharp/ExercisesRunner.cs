@@ -14,6 +14,7 @@ namespace AlgorithmsInCSharp
             Utils.PrintAlgorithmRun("BinaryTreeToDoublyLinkedList", RunBinaryTreeToListConversion);
             Utils.PrintAlgorithmRun("TowersOfHanoi", RunTowersOfHanoi);
             Utils.PrintAlgorithmRun("SudokuSolver", RunSudokuSolver);
+            Utils.PrintAlgorithmRun("EnumerateBalancedParenthesis", RunEnumerateParenthesis);
         }
 
         private static void RunSortStack()
@@ -166,6 +167,21 @@ namespace AlgorithmsInCSharp
                 };
 
             SudokuSolver.Solve(sudoku);
+        }
+
+        private static void RunEnumerateParenthesis()
+        {
+            Console.WriteLine();
+            var result = MatchingParenthesis.Enumerate(5);
+            for (var r = result.Head; r != null; r = r.Next)
+            {
+                Console.Write($"{r.Value}");
+                if (r.Next != null)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine();
         }
     }
 }
