@@ -1,5 +1,9 @@
 using AlgorithmsInCSharp.DataStructures;
 
+/*
+Write function that takes as input a positive integer k and returns
+a list of all the strings that have k pairs of matched parens
+*/
 namespace AlgorithmsInCSharp.Exercises
 {
     public static class MatchingParenthesis

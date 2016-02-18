@@ -15,6 +15,7 @@ namespace AlgorithmsInCSharp
             Utils.PrintAlgorithmRun("TowersOfHanoi", RunTowersOfHanoi);
             Utils.PrintAlgorithmRun("SudokuSolver", RunSudokuSolver);
             Utils.PrintAlgorithmRun("EnumerateBalancedParenthesis", RunEnumerateParenthesis);
+            Utils.PrintAlgorithmRun("EnumeratePowerSet", RunEnumeratePowerSet);
         }
 
         private static void RunSortStack()
@@ -172,7 +173,9 @@ namespace AlgorithmsInCSharp
         private static void RunEnumerateParenthesis()
         {
             Console.WriteLine();
+
             var result = MatchingParenthesis.Enumerate(5);
+
             for (var r = result.Head; r != null; r = r.Next)
             {
                 Console.Write($"{r.Value}");
@@ -181,6 +184,26 @@ namespace AlgorithmsInCSharp
                     Console.Write(", ");
                 }
             }
+            Console.WriteLine();
+        }
+
+        private static void RunEnumeratePowerSet()
+        {
+            var set = new[] { 10, 20, 30, 40 };
+            Console.WriteLine($"\nSet: { string.Join(", ", set) }");
+
+            var result = PowerSet.EnumeratePowerSet(set);
+
+            Console.Write("PowerSet: ");
+            for (var r = result.Head; r != null; r = r.Next)
+            {
+                Console.Write($"[{string.Join(", ", r.Value)}]");
+                if (r.Next != null)
+                {
+                    Console.Write(", ");
+                }
+            }
+
             Console.WriteLine();
         }
     }
