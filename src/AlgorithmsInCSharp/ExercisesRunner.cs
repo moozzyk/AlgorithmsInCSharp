@@ -16,6 +16,7 @@ namespace AlgorithmsInCSharp
             Utils.PrintAlgorithmRun("SudokuSolver", RunSudokuSolver);
             Utils.PrintAlgorithmRun("EnumerateBalancedParenthesis", RunEnumerateParenthesis);
             Utils.PrintAlgorithmRun("EnumeratePowerSet", RunEnumeratePowerSet);
+            Utils.PrintAlgorithmRun("GrayCode", RunGrayCode);
         }
 
         private static void RunSortStack()
@@ -205,6 +206,13 @@ namespace AlgorithmsInCSharp
             }
 
             Console.WriteLine();
+        }
+
+        private static void RunGrayCode()
+        {
+            var value = 24u;
+            var result = GrayCodeConverter.ToGray(value);
+            Console.WriteLine($"{value} => {result} {Convert.ToString(result, 2)} (Gray)");
         }
     }
 }
