@@ -16,3 +16,4 @@ TestResults
 *.snk
 packages
 project.lock.json
+.vscode/
