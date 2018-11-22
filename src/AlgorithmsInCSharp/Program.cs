@@ -20,6 +20,7 @@
             BinarySearchTreeRunner.Run();
             GraphRunner.Run();
             ExercisesRunner.Run();
+            DijkstraRunner.Run();
         }
     }
 }
