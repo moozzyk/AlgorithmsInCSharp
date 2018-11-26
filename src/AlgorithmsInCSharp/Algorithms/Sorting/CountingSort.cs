@@ -4,7 +4,7 @@ namespace AlgorithmsInCSharp.Algorithms.Sorting
 {
     public static class CountingSort
     {
-        public static int[] Sort(int[] array)
+        public static void Sort(int[] array)
         {
             var maxValue = int.MinValue;
             var minValue = int.MaxValue;
@@ -15,7 +15,8 @@ namespace AlgorithmsInCSharp.Algorithms.Sorting
                 maxValue = Math.Max(maxValue, array[i]);
             }
 
-            return Sort(array, minValue, maxValue, v => v);
+            var result = Sort(array, minValue, maxValue, v => v);
+            Array.Copy(result, array, array.Length);
         }
         public static int[] Sort(int[] array, int minKeyValue, int maxKeyValue, Func<int, int> key)
         {
@@ -26,10 +27,9 @@ namespace AlgorithmsInCSharp.Algorithms.Sorting
                 tmp[key(array[i]) - minKeyValue]++;
             }
 
-            for (int i = 0, runningSum = 0; i < tmp.Length; i++)
+            for (var i = 1; i < tmp.Length; i++)
             {
-                runningSum += tmp[i];
-                tmp[i] = runningSum;
+                tmp[i] += tmp[i - 1];
             }
 
             var resultArray = new int[array.Length];
