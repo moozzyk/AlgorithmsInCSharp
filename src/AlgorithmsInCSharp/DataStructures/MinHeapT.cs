@@ -55,7 +55,7 @@ namespace AlgorithmsInCSharp.DataStructures {
                     break;
                 }
 
-                if (childIndex + 1 < Count - 1)
+                if (childIndex + 1 < Count)
                 {
                     if (_container[childIndex + 1].CompareTo(_container[childIndex]) < 0)
                     {
